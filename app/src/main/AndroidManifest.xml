@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xyz.lklinker.giphy_tool">
+    package="xyz.lklinker.giphy_demo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.TrendsActivity"
+        <activity android:name="xyz.lklinker.giphy_demo.activity.TrendsActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!-- This is what tells the Android Homescreen/Launcher that this is the activity
@@ -23,7 +23,7 @@
 
         </activity>
 
-        <activity android:name=".activity.GiphySearchActivity"
+        <activity android:name="xyz.lklinker.giphy_demo.activity.GiphySearchActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

@@ -1,4 +1,4 @@
-package xyz.lklinker.giphy_tool.activity;
+package xyz.lklinker.giphy_demo.activity;
 
 
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import xyz.lklinker.giphy_api.GiphyQueryBuilder;
-import xyz.lklinker.giphy_tool.activity.base.GiphyActivity;
+import xyz.lklinker.giphy_demo.activity.base.GiphyActivity;
 
 public class GiphySearchActivity extends GiphyActivity {
 

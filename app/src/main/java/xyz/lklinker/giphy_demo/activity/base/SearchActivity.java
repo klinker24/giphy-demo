@@ -1,7 +1,6 @@
-package xyz.lklinker.giphy_tool.activity.base;
+package xyz.lklinker.giphy_demo.activity.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -9,8 +8,8 @@ import android.view.MenuItem;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import xyz.lklinker.giphy_tool.R;
-import xyz.lklinker.giphy_tool.activity.GiphySearchActivity;
+import xyz.lklinker.giphy_demo.R;
+import xyz.lklinker.giphy_demo.activity.GiphySearchActivity;
 
 public abstract class SearchActivity extends AppCompatActivity {
 

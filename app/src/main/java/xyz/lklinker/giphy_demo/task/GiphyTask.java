@@ -1,12 +1,8 @@
-package xyz.lklinker.giphy_tool;
+package xyz.lklinker.giphy_demo.task;
 
 import android.os.AsyncTask;
 
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
-import java.util.Scanner;
 
 import xyz.lklinker.giphy_api.Gif;
 import xyz.lklinker.giphy_api.GiphyApi;

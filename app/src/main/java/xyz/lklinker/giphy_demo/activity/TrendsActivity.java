@@ -1,10 +1,10 @@
-package xyz.lklinker.giphy_tool.activity;
+package xyz.lklinker.giphy_demo.activity;
 
 import android.os.Bundle;
 
 import xyz.lklinker.giphy_api.GiphyQueryBuilder;
-import xyz.lklinker.giphy_tool.R;
-import xyz.lklinker.giphy_tool.activity.base.GiphyActivity;
+import xyz.lklinker.giphy_demo.R;
+import xyz.lklinker.giphy_demo.activity.base.GiphyActivity;
 
 public class TrendsActivity extends GiphyActivity {
 

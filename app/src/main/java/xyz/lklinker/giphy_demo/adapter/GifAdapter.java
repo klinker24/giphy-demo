@@ -1,4 +1,4 @@
-package xyz.lklinker.giphy_tool.adapter;
+package xyz.lklinker.giphy_demo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +14,7 @@ import com.klinker.android.simple_videoview.SimpleVideoView;
 import java.util.List;
 
 import xyz.lklinker.giphy_api.Gif;
-import xyz.lklinker.giphy_tool.R;
+import xyz.lklinker.giphy_demo.R;
 
 public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
