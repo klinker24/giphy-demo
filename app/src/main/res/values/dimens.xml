@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="gif_height">200dp</dimen>
+    <dimen name="item_divider">4dp</dimen>
+</resources>
