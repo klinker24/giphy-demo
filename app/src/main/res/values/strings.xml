@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Giphy</string>
     <string name="trends">Trending GIFs</string>
+    <string name="error_downloading">Error Downloading</string>
+    <string name="share_with">Share with:</string>
+    <string name="downloading">Downloading&#8230;</string>
 </resources>

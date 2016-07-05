@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.klinker.android.simple_videoview.SimpleVideoView;
@@ -15,6 +17,7 @@ import java.util.List;
 
 import xyz.lklinker.giphy_api.Gif;
 import xyz.lklinker.giphy_demo.R;
+import xyz.lklinker.giphy_demo.task.ShareGifTask;
 
 public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
@@ -51,21 +54,30 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
     public static class GifViewHolder extends RecyclerView.ViewHolder {
 
-        private FrameLayout gifHolder;
+        private View clickZone;
         private ImageView previewImage;
+        private ImageButton shareButton;
         private SimpleVideoView videoView;
 
         public GifViewHolder(View itemView) {
             super(itemView);
-            gifHolder = (FrameLayout) itemView.findViewById(R.id.gif_holder);
+            clickZone = itemView.findViewById(R.id.touch_effect);
             previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
+            shareButton = (ImageButton) itemView.findViewById(R.id.share);
             videoView = (SimpleVideoView) itemView.findViewById(R.id.video_view);
         }
 
         public void bind(final Gif gif) {
             Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
 
-            gifHolder.setOnClickListener(new View.OnClickListener() {
+            shareButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new ShareGifTask(shareButton.getContext(), gif.getGifUrl()).execute();
+                }
+            });
+
+            clickZone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (videoView.getVisibility() == View.VISIBLE) {
