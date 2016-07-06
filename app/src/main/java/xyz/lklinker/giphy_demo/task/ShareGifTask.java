@@ -52,7 +52,7 @@ public class ShareGifTask extends AsyncTask<Void, Void, File> {
             int responseCode = httpConn.getResponseCode();
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                File downloadDir = new File(Environment.getExternalStorageDirectory(), "Downloads");
+                File downloadDir = new File(Environment.getExternalStorageDirectory(), "Download");
                 if (!downloadDir.exists()) {
                     downloadDir.mkdir();
                 }
