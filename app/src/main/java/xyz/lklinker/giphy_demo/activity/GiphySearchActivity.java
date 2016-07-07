@@ -25,7 +25,7 @@ public class GiphySearchActivity extends GiphyActivity {
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        toolbar.setTitle(getIntent().getStringExtra(ARG_SEARCH_QUERY));
+        getToolbar().setTitle(getIntent().getStringExtra(ARG_SEARCH_QUERY));
     }
 
     @Override

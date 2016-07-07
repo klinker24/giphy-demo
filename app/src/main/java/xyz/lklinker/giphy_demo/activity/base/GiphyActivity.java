@@ -45,4 +45,12 @@ public abstract class GiphyActivity extends SearchActivity {
             }
         });
     }
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public GifAdapter getAdapter() {
+        return adapter;
+    }
 }

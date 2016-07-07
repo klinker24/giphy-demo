@@ -14,7 +14,7 @@ import xyz.lklinker.giphy_demo.activity.GiphySearchActivity;
 public abstract class SearchActivity extends AppCompatActivity {
 
     private MaterialSearchView searchView;
-    protected Toolbar toolbar;
+    private Toolbar toolbar;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -66,5 +66,9 @@ public abstract class SearchActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public Toolbar getToolbar() {
+        return toolbar;
     }
 }

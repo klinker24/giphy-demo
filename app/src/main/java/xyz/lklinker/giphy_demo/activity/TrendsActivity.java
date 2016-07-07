@@ -11,8 +11,9 @@ public class TrendsActivity extends GiphyActivity {
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        toolbar.setTitle(getString(R.string.trends));
+        getToolbar().setTitle(getString(R.string.trends));
     }
+
     @Override
     protected String getGiphyQueryUrl() {
         GiphyQueryBuilder builder = new GiphyQueryBuilder(GiphyQueryBuilder.EndPoint.TRENDS);
