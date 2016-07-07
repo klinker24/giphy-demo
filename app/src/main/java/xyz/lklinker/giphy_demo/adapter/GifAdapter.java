@@ -68,6 +68,9 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
         public GifViewHolder(View itemView, Activity context) {
             super(itemView);
+
+            this.context = context;
+
             clickZone = itemView.findViewById(R.id.touch_effect);
             previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
             shareButton = (ImageButton) itemView.findViewById(R.id.share);
