@@ -10,6 +10,10 @@ import java.io.File;
 
 public class Utils {
 
+    // complex method to turn a file into something you can share to another app
+    // android uses a content provider to share between apps. This method queries the content
+    // provider to get a unique URI to the file, which will also grant permission for other
+    // apps to access that file.
     public static Uri getImageContentUri(Context context, File imageFile) {
         String filePath = imageFile.getAbsolutePath();
         Cursor cursor = context.getContentResolver().query(

@@ -1,6 +1,11 @@
 package xyz.lklinker.giphy_demo.adapter;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +26,10 @@ import xyz.lklinker.giphy_demo.task.ShareGifTask;
 
 public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
-    private final Context context;
+    private final Activity context;
     private final List<Gif> gifs;
 
-    public GifAdapter(Context context, List<Gif> gifs) {
+    public GifAdapter(Activity context, List<Gif> gifs) {
         this.context = context;
         this.gifs = gifs;
     }
@@ -37,7 +42,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
     @Override
     public GifViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.adapter_item_gif, parent, false);
-        return new GifViewHolder(v);
+        return new GifViewHolder(v, context);
     }
 
     @Override
@@ -54,12 +59,14 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
     public static class GifViewHolder extends RecyclerView.ViewHolder {
 
+        private Activity context;
+
         private View clickZone;
         private ImageView previewImage;
         private ImageButton shareButton;
         private SimpleVideoView videoView;
 
-        public GifViewHolder(View itemView) {
+        public GifViewHolder(View itemView, Activity context) {
             super(itemView);
             clickZone = itemView.findViewById(R.id.touch_effect);
             previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
@@ -73,7 +80,18 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
             shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    new ShareGifTask(shareButton.getContext(), gif.getGifUrl()).execute();
+
+                    // With android Marshmallow, the user grants permissions at runtime.
+                    if (ContextCompat.checkSelfPermission(context,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+
+                        ActivityCompat.requestPermissions(context,
+                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                0);
+                    } else {
+                        new ShareGifTask(shareButton.getContext(), gif.getGifUrl()).execute();
+                    }
                 }
             });
 
