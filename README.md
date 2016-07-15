@@ -1,5 +1,7 @@
 # Giphy Demo
 
+![Screenshot](preview.png)
+
 This is just a simple app, used for a workshop I am running.
 
 ## Features
