@@ -1,6 +1,6 @@
 # Giphy Demo
 
-![Screenshot](preview.png)
+![Screenshot](preview_2.png)
 
 This is just a simple app, used for a workshop I am running.
 
