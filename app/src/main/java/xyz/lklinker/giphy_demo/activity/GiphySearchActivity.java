@@ -15,7 +15,7 @@ public class GiphySearchActivity extends GiphyActivity {
     /**
      * Static factory method to create a search intent.
      */
-    public static final Intent createIntent(Context context, String searchQuery) {
+    public static Intent createIntent(Context context, String searchQuery) {
         Intent intent = new Intent(context, GiphySearchActivity.class);
         intent.putExtra(ARG_SEARCH_QUERY, searchQuery);
 

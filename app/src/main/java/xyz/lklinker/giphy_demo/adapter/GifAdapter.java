@@ -66,7 +66,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
         private ImageButton shareButton;
         private SimpleVideoView videoView;
 
-        public GifViewHolder(View itemView, Activity context) {
+        private GifViewHolder(View itemView, Activity context) {
             super(itemView);
 
             this.context = context;
@@ -77,7 +77,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
             videoView = (SimpleVideoView) itemView.findViewById(R.id.video_view);
         }
 
-        public void bind(final Gif gif) {
+        private void bind(final Gif gif) {
             Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
 
             shareButton.setOnClickListener(new View.OnClickListener() {
@@ -114,8 +114,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
         public void stopPlayback() {
             if (videoView.getVisibility() == View.VISIBLE) {
-                videoView.release();
-                videoView.setVisibility(View.GONE);
+                clickZone.performClick();
             }
         }
     }
