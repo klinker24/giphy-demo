@@ -36,24 +36,26 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
     @Override
     public int getItemCount() {
-        return gifs.size();
+        // what should this return?
+        return 0;
     }
 
     @Override
     public GifViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.adapter_item_gif, parent, false);
-        return new GifViewHolder(v, context);
+        // Use the LayoutInflater to create a GifViewHolder for the adapter_item_gif layout
+        return null;
     }
 
     @Override
     public void onBindViewHolder(GifViewHolder holder, int position) {
-        holder.bind(gifs.get(position));
+        // bind the view holder to the gif in this position
     }
 
     public void setGifs(List<Gif> gifs) {
         this.gifs.clear();
         this.gifs.addAll(gifs);
 
+        // what does this do?
         notifyDataSetChanged();
     }
 
@@ -63,39 +65,23 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
         private View clickZone;
         private ImageView previewImage;
-        private ImageButton shareButton;
         private SimpleVideoView videoView;
 
         private GifViewHolder(View itemView, Activity context) {
             super(itemView);
-
             this.context = context;
 
-            clickZone = itemView.findViewById(R.id.touch_effect);
-            previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
-            videoView = (SimpleVideoView) itemView.findViewById(R.id.video_view);
-
-            // find the share button
+            // find the views here
         }
 
         private void bind(final Gif gif) {
-            Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
+            // use Glide to load the gif.previewImage into the previewImage ImageView
 
-            // add a click listener to the share button that will create a ShareGifTask,
-            // then call the execute method on the task.
 
-            clickZone.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (videoView.getVisibility() == View.VISIBLE) {
-                        videoView.release();
-                        videoView.setVisibility(View.GONE);
-                    } else {
-                        videoView.setVisibility(View.VISIBLE);
-                        videoView.start(gif.getPreviewMp4Url());
-                    }
-                }
-            });
+            // add a click listener to the clickZone
+            // if the video view is shown, then release it and set its visibility to gone
+            // otherwise, show the video view and start playing the gif.previewMp4Url
+
         }
 
         public void stopPlayback() {
