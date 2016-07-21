@@ -17,6 +17,8 @@ public class GiphySearchActivity extends GiphyActivity {
         // create a new intent for this activity here.
         // you can add an extra to an intent to pass parameters between two activities.
         // use that to send the searchQuery
+
+        return null;
     }
 
     private String searchQuery;
@@ -34,5 +36,7 @@ public class GiphySearchActivity extends GiphyActivity {
     @Override
     protected String getGiphyQueryUrl() {
         // use the GiphyQueryBuilder to return a query for the search endpoint with a limit of 100
+
+        return null;
     }
 }
