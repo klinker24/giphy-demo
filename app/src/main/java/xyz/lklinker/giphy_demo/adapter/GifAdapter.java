@@ -73,30 +73,16 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
             clickZone = itemView.findViewById(R.id.touch_effect);
             previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
-            shareButton = (ImageButton) itemView.findViewById(R.id.share);
             videoView = (SimpleVideoView) itemView.findViewById(R.id.video_view);
+
+            // find the share button
         }
 
         private void bind(final Gif gif) {
             Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
 
-            shareButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    // With android Marshmallow, the user grants permissions at runtime.
-                    if (ContextCompat.checkSelfPermission(context,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            != PackageManager.PERMISSION_GRANTED) {
-
-                        ActivityCompat.requestPermissions(context,
-                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                0);
-                    } else {
-                        new ShareGifTask(shareButton.getContext(), gif.getGifUrl()).execute();
-                    }
-                }
-            });
+            // add a click listener to the share button that will create a ShareGifTask,
+            // then call the execute method on the task.
 
             clickZone.setOnClickListener(new View.OnClickListener() {
                 @Override

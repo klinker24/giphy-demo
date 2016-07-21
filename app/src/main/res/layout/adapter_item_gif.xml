@@ -29,12 +29,10 @@
         android:layout_height="match_parent"
         android:background="?selectableItemBackground"  />
 
-    <ImageButton
-        android:id="@+id/share"
-        android:src="@drawable/ic_action_share"
-        android:background="?selectableItemBackgroundBorderless"
-        android:layout_gravity="bottom|end"
-        android:layout_width="48dp"
-        android:layout_height="48dp" />
+
+    <!-- Add a share button. It is at the bottom of this layout so that it appears on top of everything else -->
+    <!-- Make an ImageButton with src="@drawable/ic_action_share" -->
+    <!-- 48 dp is kind of the standard for touch targets -->
+    <!-- Where do we want it to appear on the adapter item? bottom right? top left? -->
 
 </FrameLayout>
