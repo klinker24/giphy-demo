@@ -22,21 +22,32 @@ public abstract class GiphyActivity extends SearchActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, getResources().getInteger(R.integer.column_count)));
+        // set the content view to R.layout.activity_main
 
-        adapter = new GifAdapter(this, new ArrayList<Gif>());
-        recyclerView.setAdapter(adapter);
 
+        // find the recycler view
+
+
+        // where does this column count come from?
+        int columnCount = getResources().getInteger(R.integer.column_count);
+
+        // recycler view's need a layout manager. Common ones are LinearLayoutManager (for a simple list)
+        // and GridLayoutManager for a list with multiple columns.
+        // lets use a GridLayoutManager.
+
+
+        // this query the Giphy API and put the GIFs into the adapter
         new GiphyTask(getGiphyQueryUrl(), new GiphyTask.Callback() {
             @Override
             public void onResponse(List<Gif> gifs) {
-                adapter.setGifs(gifs);
+                // we should create the adapter before calling this, but that will be done in the next step
+                // adapter.setGifs(gifs);
             }
         }).execute();
 
+
+        // simply stops playing the GIFs when they are scrolled off the screen
         recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
             @Override
             public void onViewRecycled(RecyclerView.ViewHolder holder) {
