@@ -12,7 +12,7 @@ public class TrendsActivity extends GiphyActivity {
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        // set the toolbar text to the string corresponding to R.string.trends
+        // write hello world on the toolbar!
 
     }
 
