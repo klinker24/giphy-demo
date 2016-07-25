@@ -35,13 +35,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!-- the layout behavior that is set just tells the coordinator layout to place this scroll view
-         under the app bar layout -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="3dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    <!-- RecyclerView -->
 
 </android.support.design.widget.CoordinatorLayout>
