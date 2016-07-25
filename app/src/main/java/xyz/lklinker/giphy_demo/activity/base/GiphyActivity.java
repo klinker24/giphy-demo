@@ -24,7 +24,7 @@ public abstract class GiphyActivity extends SearchActivity {
         super.onCreate(savedInstanceState);
 
         // set the content view to R.layout.activity_main
-
+        setContentView(R.layout.activity_main);
 
         // find the recycler view
 
@@ -48,13 +48,15 @@ public abstract class GiphyActivity extends SearchActivity {
 
 
         // simply stops playing the GIFs when they are scrolled off the screen
-        recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
-            @Override
-            public void onViewRecycled(RecyclerView.ViewHolder holder) {
-                GifAdapter.GifViewHolder gifHolder = (GifAdapter.GifViewHolder) holder;
-                gifHolder.stopPlayback();
-            }
-        });
+        if (recyclerView != null) {
+            recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
+                @Override
+                public void onViewRecycled(RecyclerView.ViewHolder holder) {
+                    GifAdapter.GifViewHolder gifHolder = (GifAdapter.GifViewHolder) holder;
+                    gifHolder.stopPlayback();
+                }
+            });
+        }
     }
 
     public RecyclerView getRecyclerView() {
