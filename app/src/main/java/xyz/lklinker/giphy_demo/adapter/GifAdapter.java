@@ -80,7 +80,8 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
         private void bind(final Gif gif) {
             Glide.with(itemView.getContext())
-                    .load(gif.getPreviewImageUrl())
+                    .asGif()
+                    .load(gif.getGifUrl())
                     .apply(new RequestOptions().centerCrop())
                     .into(previewImage);
 
@@ -101,19 +102,19 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
                     }
                 }
             });
-
-            clickZone.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (videoView.getVisibility() == View.VISIBLE) {
-                        videoView.release();
-                        videoView.setVisibility(View.GONE);
-                    } else {
-                        videoView.setVisibility(View.VISIBLE);
-                        videoView.start(gif.getPreviewMp4Url());
-                    }
-                }
-            });
+//
+//            clickZone.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    if (videoView.getVisibility() == View.VISIBLE) {
+//                        videoView.release();
+//                        videoView.setVisibility(View.GONE);
+//                    } else {
+//                        videoView.setVisibility(View.VISIBLE);
+//                        videoView.start(gif.getPreviewMp4Url());
+//                    }
+//                }
+//            });
         }
 
         public void stopPlayback() {
