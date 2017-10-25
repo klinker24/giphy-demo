@@ -62,20 +62,16 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
 
         private Activity context;
 
-        private View clickZone;
         private ImageView previewImage;
         private ImageButton shareButton;
-        private SimpleVideoView videoView;
 
         private GifViewHolder(View itemView, Activity context) {
             super(itemView);
 
             this.context = context;
 
-            clickZone = itemView.findViewById(R.id.touch_effect);
             previewImage = (ImageView) itemView.findViewById(R.id.preview_image);
             shareButton = (ImageButton) itemView.findViewById(R.id.share);
-            videoView = (SimpleVideoView) itemView.findViewById(R.id.video_view);
         }
 
         private void bind(final Gif gif) {
@@ -102,25 +98,6 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
                     }
                 }
             });
-//
-//            clickZone.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    if (videoView.getVisibility() == View.VISIBLE) {
-//                        videoView.release();
-//                        videoView.setVisibility(View.GONE);
-//                    } else {
-//                        videoView.setVisibility(View.VISIBLE);
-//                        videoView.start(gif.getPreviewMp4Url());
-//                    }
-//                }
-//            });
-        }
-
-        public void stopPlayback() {
-            if (videoView.getVisibility() == View.VISIBLE) {
-                clickZone.performClick();
-            }
         }
     }
 }

@@ -36,14 +36,6 @@ public abstract class GiphyActivity extends SearchActivity {
                 adapter.setGifs(gifs);
             }
         }).execute();
-
-        recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
-            @Override
-            public void onViewRecycled(RecyclerView.ViewHolder holder) {
-                GifAdapter.GifViewHolder gifHolder = (GifAdapter.GifViewHolder) holder;
-                gifHolder.stopPlayback();
-            }
-        });
     }
 
     public RecyclerView getRecyclerView() {
