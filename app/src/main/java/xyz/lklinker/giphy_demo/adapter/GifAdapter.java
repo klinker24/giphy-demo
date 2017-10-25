@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.klinker.android.simple_videoview.SimpleVideoView;
 
 import java.util.List;
@@ -78,7 +79,10 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
         }
 
         private void bind(final Gif gif) {
-            Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
+            Glide.with(itemView.getContext())
+                    .load(gif.getPreviewImageUrl())
+                    .apply(new RequestOptions().centerCrop())
+                    .into(previewImage);
 
             shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
