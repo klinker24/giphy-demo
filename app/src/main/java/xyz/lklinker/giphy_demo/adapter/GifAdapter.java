@@ -19,6 +19,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.klinker.android.simple_videoview.SimpleVideoView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import xyz.lklinker.giphy_api.Gif;
@@ -40,8 +42,8 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
         return gifs.size();
     }
 
-    @Override
-    public GifViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NotNull
+    public GifViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.adapter_item_gif, parent, false);
         return new GifViewHolder(v, context);
     }
@@ -58,7 +60,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.GifViewHolder> {
         notifyDataSetChanged();
     }
 
-    public static class GifViewHolder extends RecyclerView.ViewHolder {
+    static class GifViewHolder extends RecyclerView.ViewHolder {
 
         private Activity context;
 
